@@ -119,7 +119,7 @@ def main():
     device = setup_device()
     
     # Configuration
-    dataset_path = "../handDigitDataset"
+    dataset_path = "../caps"
     epochs = 15  # Slightly higher epochs allowed due to Early Stopping and faster GPU
     batch_size = 64
     num_workers = 4 # Optimized for data loading on Windows
