@@ -3,7 +3,8 @@ from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS
 from utils.predict import load_prediction_model, predict_digit
 from utils.preprocess import base64_to_tensor
-from utils.captcha_generator import generate_captcha_digit
+
+from utils.captcha_generator import generate_captcha_digit, generate_captcha_letter
 
 app = Flask(__name__)
 CORS(app)
@@ -43,9 +44,10 @@ def home():
 def get_captcha():
     """Returns a new random CAPTCHA digit."""
     digit = generate_captcha_digit()
+    letter=generate_captcha_letter
     return jsonify({
         'status': 'success',
-        'captcha_digit': digit
+        'captcha_digit': letter
     })
 
 @app.route('/api/predict', methods=['POST'])

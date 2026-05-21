@@ -6,8 +6,8 @@ from PIL import Image
 
 # Model input sizes
 MODEL_SIZES = {
-    'EfficientNetV2B0': (64, 64),
-    'MobileNetV2': (64, 64)
+    'EfficientNetV2B0': (224, 224),
+    'MobileNetV2': (128, 128)
 }
 
 class DigitDataset(Dataset):
@@ -28,7 +28,7 @@ class DigitDataset(Dataset):
             image = Image.open(img_path).convert('RGB')
         except Exception as e:
             # Fallback for corrupted images if any slipped through
-            image = Image.new('RGB', (64, 64), color='black')
+            image = Image.new('RGB', (128, 128), color='black')
             
         if self.transform:
             image = self.transform(image)
@@ -59,12 +59,12 @@ def get_transforms(target_size, is_training=True):
                                  std=[0.229, 0.224, 0.225])
         ])
 
-def create_dataloaders(X_train, y_train, X_test, y_test, model_name='EfficientNetV2B0', batch_size=64, num_workers=4):
+def create_dataloaders(X_train, y_train, X_test, y_test, model_name='EfficientNetV2B0', batch_size=64, num_workers=2):
     """
     Creates PyTorch DataLoaders for training and testing.
     Optimized for GPU with pin_memory=True.
     """
-    target_size = MODEL_SIZES.get(model_name, (64, 64))
+    target_size = MODEL_SIZES.get(model_name, (128, 128))
     
     train_transform = get_transforms(target_size, is_training=True)
     test_transform = get_transforms(target_size, is_training=False)
