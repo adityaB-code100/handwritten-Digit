@@ -117,7 +117,8 @@ def load_dataset(dataset_path):
         if folder_path is None:
             print(f"Warning: Folder for '{letter}' not found.")
             continue
-            
+        print(f"Checking folder: {folder_path}")
+
         extensions = ('*.jpg', '*.jpeg', '*.png')
         files = []
         for ext in extensions:
