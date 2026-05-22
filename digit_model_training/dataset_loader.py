@@ -93,12 +93,13 @@ def load_dataset(dataset_path):
     labels = []
     
     # A-Z capital letters
-    classes = [chr(i) for i in range(ord('A'), ord('Z') + 1)]  # ['A', 'B', ..., 'Z']
-    
+   # classes = [chr(i) for i in range(ord('A'), ord('Z') + 1)]  # ['A', 'B', ..., 'Z']
+    classes = [chr(i) for i in range(ord('a'), ord('z') + 1)]  # ['A', 'B', ..., 'Z']
+
     # Handle inconsistent naming: 'S_cap' vs 'A_caps'
     def get_folder_name(letter):
-        folder_caps  = os.path.join(dataset_path, f"{letter}_caps")
-        folder_cap   = os.path.join(dataset_path, f"{letter}_cap")
+        folder_caps  = os.path.join(dataset_path, f"{letter}")#_caps")
+        folder_cap   = os.path.join(dataset_path, f"{letter}")#_cap")
         if os.path.exists(folder_caps):
             return folder_caps
         elif os.path.exists(folder_cap):
