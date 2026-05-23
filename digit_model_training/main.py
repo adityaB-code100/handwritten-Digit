@@ -120,7 +120,8 @@ def main():
     
     # Configuration
     #dataset_path = "../caps"
-    dataset_path = "../small"
+    #dataset_path = "../small"
+    dataset_path="../handDigitDataset"
 
     epochs = 15  # Slightly higher epochs allowed due to Early Stopping and faster GPU
     batch_size = 64
