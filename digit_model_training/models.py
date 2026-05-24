@@ -3,7 +3,7 @@ import torch.nn as nn
 import timm
 from torchvision import models
 
-def build_model(model_name='EfficientNetV2B0', num_classes=10):
+def build_model(model_name='EfficientNetV2B0', num_classes=26):
     """
     Builds the requested PyTorch model with a custom classification head.
     """

@@ -17,18 +17,17 @@ def load_dataset(dataset_path):
     
     # A-Z capital letters
    # classes = [chr(i) for i in range(ord('A'), ord('Z') + 1)]  # ['A', 'B', ..., 'Z']
-    #classes = [chr(i) for i in range(ord('a'), ord('z') + 1)]  # ['A', 'B', ..., 'Z']
-    classes = [str(i) for i in range(10)]
+    classes = [chr(i) for i in range(ord('a'), ord('z') + 1)]  # ['A', 'B', ..., 'Z']
+    # classes = [str(i) for i in range(10)]
 
 
     # Handle inconsistent naming: 'S_cap' vs 'A_caps'
     def get_folder_name(letter):
-        folder_caps  = os.path.join(dataset_path, f"digit_{letter}")#_caps")
-        folder_cap   = os.path.join(dataset_path, f"{letter}")#_cap")
+        # folder_caps  = os.path.join(dataset_path, f"digit_{letter}")#_caps")
+        folder_caps   = os.path.join(dataset_path, f"{letter}")#_cap")
         if os.path.exists(folder_caps):
             return folder_caps
-        elif os.path.exists(folder_cap):
-            return folder_cap
+     
         return None
 
     class_to_idx = {c: idx for idx, c in enumerate(classes)}  # A=0, B=1, ..., Z=25

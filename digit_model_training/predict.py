@@ -4,7 +4,7 @@ from PIL import Image
 from models import build_model
 from preprocess import MODEL_SIZES
 
-def load_prediction_model(model_path, model_name='EfficientNetV2B0', num_classes=10):
+def load_prediction_model(model_path, model_name='EfficientNetV2B0', num_classes=26):
     """
     Loads a saved PyTorch model for inference.
     """

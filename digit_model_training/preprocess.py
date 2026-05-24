@@ -6,8 +6,8 @@ from PIL import Image
 
 # Model input sizes
 MODEL_SIZES = {
-    'EfficientNetV2B0': (224, 224),
-    'MobileNetV2': (128, 128)
+    'EfficientNetV2B0': (64,64),#(224, 224),
+    'MobileNetV2': (64, 64) #128,128
 }
 
 class DigitDataset(Dataset):
